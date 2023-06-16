@@ -1,0 +1,164 @@
+#Game Description
+#2 player game
+import random
+import tkinter as tk
+from tkinter import *
+from tkinter import messagebox
+
+click= True
+count=0
+
+def iswin():
+    global win
+
+    if(b1['text']=="X" and b2['text']=="X" and b3['text']=="X"):
+        b1.config(bg="green")
+        b2.config(bg="green")
+        b3.config(bg="green")
+        win = True
+        b0['text']="X WON THE GAME!\nCongrats!!"
+    elif(b1['text']=="X" and b4['text']=="X" and b7['text']=="X"):
+        b1.config(bg="green")
+        b4.config(bg="green")
+        b7.config(bg="green")
+        win = True
+        b0['text']="X WON THE GAME!\nCongrats!!"
+    elif(b3['text']=="X" and b6['text']=="X" and b9['text']=="X"):
+        b3.config(bg="green")
+        b6.config(bg="green")
+        b9.config(bg="green")
+        win = True
+        b0['text']="X WON THE GAME!\nCongrats!!"
+    elif(b7['text']=="X" and b8['text']=="X" and b9['text']=="X"):
+        b7.config(bg="green")
+        b8.config(bg="green")
+        b9.config(bg="green")
+        win = True
+        b0['text']="X WON THE GAME!\nCongrats!!"
+    elif(b1['text']=="X" and b5['text']=="X" and b9['text']=="X"):
+        b1.config(bg="green")
+        b5.config(bg="green")
+        b9.config(bg="green")
+        win = True
+        b0['text']="X WON THE GAME!\nCongrats!!"
+    elif(b3['text']=="X" and b5['text']=="X" and b7['text']=="X"):
+        b3.config(bg="green")
+        b5.config(bg="green")
+        b7.config(bg="green")
+        win = True
+        b0['text']="X WON THE GAME!\nCongrats!!"
+    elif(b2['text']=="X" and b5['text']=="X" and b8['text']=="X"):
+        b2.config(bg="green")
+        b5.config(bg="green")
+        b8.config(bg="green")
+        win = True
+        b0['text']="X WON THE GAME!\nCongrats!!"
+    elif (b4['text'] == "X" and b5['text'] == "X" and b6['text'] == "X"):
+        b4.config(bg="green")
+        b5.config(bg="green")
+        b6.config(bg="green")
+        win = True
+        b0['text']="X WON THE GAME!\nCongrats!!"
+    elif(b1['text']=="O" and b2['text']=="O" and b3['text']=="O"):
+        b1.config(bg="green")
+        b2.config(bg="green")
+        b3.config(bg="green")
+        win = True
+        b0['text']="O WON THE GAME!\nCongrats!!"
+    elif(b1['text']=="O" and b4['text']=="O" and b7['text']=="O"):
+        b1.config(bg="green")
+        b4.config(bg="green")
+        b7.config(bg="green")
+        win = True
+        b0['text']="O WON THE GAME!\nCongrats!!"
+    elif(b3['text']=="O" and b6['text']=="O" and b9['text']=="O"):
+        b3.config(bg="green")
+        b6.config(bg="green")
+        b9.config(bg="green")
+        win = True
+        b0['text']="O WON THE GAME!\nCongrats!!"
+    elif(b7['text']=="O" and b8['text']=="O" and b9['text']=="O"):
+        b7.config(bg="green")
+        b8.config(bg="green")
+        b9.config(bg="green")
+        win = True
+        b0['text']="O WON THE GAME!\nCongrats!!"
+    elif(b1['text']=="O" and b5['text']=="O" and b9['text']=="O"):
+        b1.config(bg="green")
+        b5.config(bg="green")
+        b9.config(bg="green")
+        win = True
+        b0['text']="O WON THE GAME!\nCongrats!!"
+    elif(b3['text']=="O" and b5['text']=="O" and b7['text']=="O"):
+        b3.config(bg="green")
+        b5.config(bg="green")
+        b7.config(bg="green")
+        win = True
+        b0['text']="O WON THE GAME!\nCongrats!!"
+    elif (b2['text'] == "O" and b5['text'] == "O" and b8['text'] == "O"):
+        b2.config(bg="green")
+        b5.config(bg="green")
+        b8.config(bg="green")
+        win = True
+        b0['text']="O WON THE GAME!\nCongrats!!"
+    elif (b4['text'] == "O" and b5['text'] == "O" and b6['text'] == "O"):
+        b4.config(bg="green")
+        b5.config(bg="green")
+        b6.config(bg="green")
+        win = True
+        b0['text']="O WON THE GAME!\nCongrats!!"
+    elif(count==9 and win==False):
+        b0['text'] = "Draw!!"
+
+def yesclicked(b):
+    li.remove(b)
+    r=random.choice(li)
+    global click,count
+    if(b['text']==" "):
+        b['text']="X"
+        r['text']="O"
+        count+=2
+        click=False
+        iswin()
+    else:
+        print("You should't Click ")
+
+def reset(re):
+    global b0,b1, b2, b3, b4, b5, b6, b7, b8, b9,li
+
+    win = False
+    if(re==True):
+        b0 = Button(text="WELCOME!!\nFirst X Turn", font=("Times new roman", 25), width=20, height=2,bg="orange")
+
+    b1=Button(command=lambda:yesclicked(b1),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    b2=Button(command=lambda:yesclicked(b2),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    b3=Button(command=lambda:yesclicked(b3),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    b4=Button(command=lambda:yesclicked(b4),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    b5=Button(command=lambda:yesclicked(b5),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    b6=Button(command=lambda:yesclicked(b6),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    b7=Button(command=lambda:yesclicked(b7),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    b8=Button(command=lambda:yesclicked(b8),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    b9=Button(command=lambda:yesclicked(b9),text=" ",font=("Consolas",25),width=6,height=2,bg="white")
+    res = Button(command=lambda:reset(rese), text="RESET", font=("Consolas", 25), width=20, height=2,bg="green")
+    li = list([b1, b2, b3, b4, b5, b6, b7, b8, b9])
+    b0.place(x=0,y=0)
+    b1.place(x=0,y=110)
+    b2.place(x=120,y=110)
+    b3.place(x=240,y=110)
+    b4.place(x=0,y=220)
+    b5.place(x=120,y=220)
+    b6.place(x=240,y=220)
+    b7.place(x=0,y=330)
+    b8.place(x=120,y=330)
+    b9.place(x=240,y=330)
+    res.place(x=0,y=440)
+
+#main code
+game=tk.Tk()
+game.title("Tic Tac Toe")
+game.geometry("360x530")
+game.config(bg="red")
+global rese
+rese=True
+reset(rese)
+game.mainloop()
